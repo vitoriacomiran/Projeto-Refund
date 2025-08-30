@@ -6,7 +6,7 @@ const form = document.querySelector("form");
 // seleciona os elementos da lista
 const expenseList = document.querySelector("ul")
 const expenseQuantity = document.querySelector("aside header p span")
-
+const expenseTotal = document.querySelector("aside header h2")
 
 
 // validar input de despesa para aceitar apenas número
@@ -110,6 +110,33 @@ function updateTotals(){
     expenseQuantity.textContent = `${items.length} ${
         items.length > 1 ? "despesas" : "despesa"
     }`
+
+    // variável para incrementar o total
+    let total = 0
+
+    // percorre cada item (li) da lista (ul)
+    for (let item = 0; item < items.length; item ++){
+        const itemAmount = items[item].querySelector(".expense-amount")
+
+    // remove caracteres não numéricos e substitui a vírgula pelo ponto
+        let value = itemAmount.textContent.replace(/[^\d]/g, "").replace(",",".")
+
+    // converte o valor para float
+        value = parseFloat(value)
+
+    // verifica se é um número válido
+        if(isNaN(value)) {
+            return alert (
+                "Não foi possível calcular o total. O valor não parece ser um número."
+            )
+        }
+
+    // incrementar o valor total
+        total += Number(value)
+    }
+
+    // exibe o total
+    expenseTotal.textContent = total
 
     } catch (error) {
         console.log(error)
