@@ -1,7 +1,8 @@
+const form = document.querySelector("form");
 const amount = document.getElementById("amount");
 const expense = document.getElementById("expense");
 const category = document.getElementById("category");
-const form = document.querySelector("form");
+
 
 // seleciona os elementos da lista
 const expenseList = document.querySelector("ul")
@@ -32,19 +33,20 @@ function formatCurrencyBRL(value) {
 
 // previne que ele recarregue a página toda vez
 form.onsubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
 // cria um objeto com os detalhes da nova despesa adicionada
     const newExpense = {
         id: new Date().getTime(),
         expense: expense.value,
         category_id: category.value,
-        category_name: category.options[category.selectIndex],
+        category_name: category.options[category.selectedIndex].text,
         amount: amount.value,
         create_at: new Date(),
     }
     expenseAdd(newExpense) // chama a função que irá adicionar o item na lista
 }
+
 // adiciona um novo item na lista
 function expenseAdd(newExpense) {
     try {
