@@ -1,10 +1,10 @@
-💰 Projeto Gerenciador de Despesas
+# 💰 Projeto Gerenciador de Despesas
 
 Este é um projeto simples de gerenciamento de despesas desenvolvido com HTML, CSS e JavaScript.
 
 O usuário pode adicionar despesas com nome, categoria e valor. As despesas são exibidas em uma lista dinâmica, permitindo o cálculo do total gasto e a quantidade de despesas cadastradas.
 
-Funcionalidades
+## Funcionalidades
 
 Captura do nome, categoria e valor da despesa
 
@@ -20,7 +20,7 @@ Atualização automática da quantidade de despesas e do valor total
 
 Interface interativa e responsiva
 
-Tecnologias usadas
+## Tecnologias usadas
 
 HTML5
 
